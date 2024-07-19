@@ -1,9 +1,10 @@
 <script setup>
-import FlowingText from '@/assets/FlowingText.vue';
+import FlowingText from '@/assets/FlowingLogo.vue';
 import { useCursorTracker } from '@/cursorTracker.js';
 import { register } from '@/userManagement.js';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue'
+import '@/assets/animations.css'
 
 const { cursorX, cursorY } = useCursorTracker();
 const router = useRouter();
@@ -40,9 +41,10 @@ function handleRegister() {
   max-width: 400px;
   margin: auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.3); /* Adjusted for opacity */
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease forwards;
 }
 .input {
   width: 100%;
@@ -52,7 +54,7 @@ function handleRegister() {
   border: rgba(255, 255, 255, 0.3) 1px solid;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  color: white; /* Change the input text color */
+  color: white;
 }
 .input::placeholder {
   color: rgba(255, 255, 255, 1);

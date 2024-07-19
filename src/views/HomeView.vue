@@ -1,8 +1,16 @@
 <script setup>
-import FlowingText from '@/assets/FlowingText.vue';
+import FlowingText from '@/assets/FlowingLogo.vue';
 import HomeWelcomeLabel from '@/assets/HomeWelcomeLabel.vue';
 import HomePageButtons from '@/assets/HomePageButtons.vue';
 import { useCursorTracker } from '@/cursorTracker.js';
+
+import '@/assets/animations.css'
+import { ref } from 'vue'
+
+const welcomeLabel = ref(null);
+const fadeOutLabel = () =>{
+  welcomeLabel.value.style.animation='fadeOut 2s forwards';
+}
 
 const {cursorX,cursorY} = useCursorTracker();
 </script>
@@ -12,11 +20,11 @@ const {cursorX,cursorY} = useCursorTracker();
     <header>
       <FlowingText text="localGuessr" :animate="true" />
     </header>
-    <label>
+    <label ref="welcomeLabel">
       <HomeWelcomeLabel />
     </label>
     <main class="main">
-      <HomePageButtons />
+      <HomePageButtons @fadeOutLabel="fadeOutLabel"/>
     </main>
   </div>
 </template>
